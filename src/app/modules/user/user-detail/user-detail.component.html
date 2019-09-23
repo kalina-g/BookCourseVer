@@ -1,0 +1,98 @@
+<section class="container">
+    <div *ngIf="!loader" class="row section-wrapper">
+        <div class="col-md-6 offset-md-3">
+            <div class="card-container">
+                <h2>User Details Edit</h2>
+                <form [formGroup]="userEditForm">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" formControlName="username" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" formControlName="email" class="form-control" />
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" formControlName="firstName" class="form-control" />
+                                <div *ngIf="" class="invalid-feedback">
+                                    <div class="form-err" *ngIf="userEditForm['username'].errors.required">First name
+                                        should be at least 2
+                                        characters</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" formControlName="lastName" class="form-control" />
+                                <div *ngIf="" class="invalid-feedback">
+                                    <div class="form-err" *ngIf="">Last name should be at least 2 characters</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="password">Address</label>
+                                <input type="text" formControlName="address" class="form-control" />
+                                <div *ngIf="" class="invalid-feedback">
+                                    <div class="form-err" *ngIf="">Enter a valid address</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="phone" formControlName="phone" class="form-control" />
+                                <div *ngIf="" class="invalid-feedback">
+                                    <div class="form-err" *ngIf="">Enter a valid phone number</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row ">
+                        <div class="col">
+                        <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="isSuper">
+                                <label class="form-check-label" for="isSuper">
+                                  <b>Make this user Admin</b>
+                                </label>
+                              </div>
+                              </div>
+                </div> -->
+
+
+
+                    <div class="form-group mt-2">
+                        <button type="button" (click)="saveData()" [disabled]="" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div *ngIf="loader" class="loader-overlay">
+    <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+        <rect x="20" y="50" width="4" height="10" fill="#fff">
+            <animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0"
+                begin="0" dur="0.6s" repeatCount="indefinite" />
+        </rect>
+        <rect x="30" y="50" width="4" height="10" fill="#fff">
+            <animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0"
+                begin="0.2s" dur="0.6s" repeatCount="indefinite" />
+        </rect>
+        <rect x="40" y="50" width="4" height="10" fill="#fff">
+            <animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0"
+                begin="0.4s" dur="0.6s" repeatCount="indefinite" />
+        </rect>
+    </svg>
+
+</div>

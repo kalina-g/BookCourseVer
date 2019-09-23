@@ -1,0 +1,49 @@
+.header-wrapper {
+  background: #fff;
+}
+.navbar-light {
+  background: #fff;
+  padding: 20px 0;
+}
+.account-menu {
+  display: flex;
+  align-items: center;
+}
+.navbar-light > div {
+  width: 100%;
+}
+
+.navbar-light .navbar-toggler {
+  border: none;
+  position: absolute;
+  right: 15px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(56, 56, 56);
+  font-weight: 400;
+  font-size: 12px;
+}
+.nav-link i {
+  color: #012e54;
+  margin-right: 10px;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-expand-lg > .container,
+  .navbar-expand-lg > .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-inner {
+    display: flex;
+    align-items: center;
+  }
+
+  .main-nav {
+    align-items: center;
+  }
+}

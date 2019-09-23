@@ -1,0 +1,35 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1 class="display-4 text-center">Book.app</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="container most-added-section">
+  <h2 class="text-center section-title">Most added by other users:</h2>
+  <ng-container *ngIf='result$ | async as books'>
+    <div [@listStagger]='books.length' class="row">
+      <div *ngFor='let book of books' class="col-md-3">
+        <div class="card">
+          <div class="card-image" [ngStyle]="{'background-image': 'url('+ book.imgSrc +')'}">
+          </div>
+          <div class="card-body">
+            <h3 class="card-header">
+              {{book.title}}
+            </h3>
+            <div class="card-content">
+              <h4 class="card-title">By: {{book.author}}</h4>
+              <p class="added-count"><span>{{book.addedToListTimes}}</span> are reading</p>
+              <p class="card-text">{{ book.description | slice:0:125 }}...</p>
+              <div class="card-footer d-flex justify-content-between flex-row">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</section>

@@ -1,0 +1,13 @@
+<section class="container">
+    <div *ngIf='book' class="row section-wrapper">
+        <div class="col-sm-4">
+            <img src="{{book.imgSrc}}" alt="{{book.title}}">
+        </div>
+        <div class="col-sm-8">
+            <h2>{{book.title}}</h2>
+            <p>Written by: {{book.author}}</p>
+            <p>{{book.description}}</p>
+            <h4>{{book.rating}}</h4>
+        </div>
+    </div>
+</section>

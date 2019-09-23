@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-image" [ngStyle]="{'background-image': 'url('+ book.imgSrc +')'}">
+  </div>
+  <div class="card-body">
+    <h3 class="card-header">
+      {{book.title}}
+    </h3>
+    <div class="card-content">
+      <h4 class="card-title">By: {{book.author}}</h4>
+      <p class="card-text">{{ book.description | slice:0:125 }}...</p>
+      <div class="card-footer d-flex justify-content-center flex-row book-actions">
+        <button *ngIf="userId" [disabled]="btnDisable" class="btn reverse btn--action" [id]="book._id"
+          (click)="addToUserList(book)">
+          {{addToReadingListMsg}}
+        </button>
+
+        <a *ngIf="!isSupeArdmin" [routerLink]="['/books/preview', book._id]" class="btn solid btn--action"
+          [id]="book._id">View Details</a>
+        <div *ngIf="isSupeArdmin" class="admin-actions floating">
+          <a class="btn--edit admin-action-btn" [routerLink]="['/books/edit', book._id]" [id]="book._id"><i
+              class="icofont-ui-edit"></i></a>
+          <button class="btn--edit admin-action-btn btn--delete" (click)="deleteBook()"><i
+              class="icofont-close"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

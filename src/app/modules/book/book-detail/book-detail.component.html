@@ -1,0 +1,72 @@
+<section class="container">
+    <div class="row" *ngIf="!loader">
+        <div class="col-md-6 offset-md-3">
+            <div class="card-container">
+                <h2>Edit Book</h2>
+                <form [formGroup]="bookEditForm">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" formControlName="title" class="form-control" />
+                        <div class="form-err"
+                            *ngIf=" bookEditForm.get('title').touched && bookEditForm.get('title').hasError('required')">
+                            Title Requred
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" formControlName="author" class="form-control" />
+                        <div class="form-err"
+                            *ngIf=" bookEditForm.get('author').touched && bookEditForm.get('author').hasError('required')">
+                            Author name Requred
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="imgSrc">Image URL</label>
+                        <input type="text" formControlName="imgSrc" class="form-control" />
+                        <div class="form-err"
+                            *ngIf=" bookEditForm.get('imgSrc').touched && bookEditForm.get('imgSrc').hasError('required')">
+                            Image URL required
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea formControlName="description" rows="4" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                </textarea>
+                        <div class="form-err"
+                            *ngIf="bookEditForm.get('description').dirty  && bookEditForm.get('description').hasError('minlength')">
+                            Min 120 symbols
+                        </div>
+                        <div class="form-err"
+                            *ngIf=" bookEditForm.get('description').touched && bookEditForm.get('description').hasError('required')">
+                            Description Requred
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" (click)="saveData()" [disabled]="bookEditForm.invalid"
+                            class="btn btn-primary">Update</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div *ngIf="loader" class="loader-overlay">
+    <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+        <rect x="20" y="50" width="4" height="10" fill="#fff">
+            <animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0"
+                begin="0" dur="0.6s" repeatCount="indefinite" />
+        </rect>
+        <rect x="30" y="50" width="4" height="10" fill="#fff">
+            <animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0"
+                begin="0.2s" dur="0.6s" repeatCount="indefinite" />
+        </rect>
+        <rect x="40" y="50" width="4" height="10" fill="#fff">
+            <animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0"
+                begin="0.4s" dur="0.6s" repeatCount="indefinite" />
+        </rect>
+    </svg>
+</div>
